@@ -98,9 +98,30 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        // TODO - implement this method
-        return null;
-    }
+        // TODO - implement this method - need to break statement in loop to stop the loop after the condition is met
+        //  to not print duplicates; similar to findByColumnnAndValue; need to use loop
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        for (HashMap<String, String> column : allJobs) {
+            for (String search : jobs.get()) {
+                if (search.contains(value)) {
+                    if (!jobs.contains(column)) {
+                        jobs.add(column);
+                    }
+                    break;
+                }
+            }
+        }
+            return jobs;
+        }
+
+//            String aValue = column.get(value);
+//
+//            if (!aValue.contains(value)) {
+//                jobs.add(column);
+//            }
+//        }
+//        return jobs;
+//    }
 
     /**
      * Read in data from a CSV file and store it in a list
