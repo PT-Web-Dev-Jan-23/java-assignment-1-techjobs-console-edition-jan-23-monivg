@@ -102,17 +102,15 @@ public class JobData {
         //  to not print duplicates; similar to findByColumnnAndValue; need to use loop
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
         for (HashMap<String, String> column : allJobs) {
-            for (String search : jobs.get()) {
-                if (search.contains(value)) {
+            String aColumn = column.toString().toLowerCase();
+                if (aColumn.contains(value.toLowerCase())) {
                     if (!jobs.contains(column)) {
                         jobs.add(column);
                     }
-                    break;
                 }
-            }
         }
             return jobs;
-        }
+    }
 
 //            String aValue = column.get(value);
 //
