@@ -79,11 +79,10 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())){
                 jobs.add(row);
             }
         }
-
         return jobs;
     }
 
@@ -111,15 +110,6 @@ public class JobData {
         }
             return jobs;
     }
-
-//            String aValue = column.get(value);
-//
-//            if (!aValue.contains(value)) {
-//                jobs.add(column);
-//            }
-//        }
-//        return jobs;
-//    }
 
     /**
      * Read in data from a CSV file and store it in a list
