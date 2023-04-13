@@ -81,9 +81,9 @@ public class JobData {
 
             if (aValue.contains(value.toLowerCase())){
                 jobs.add(row);
-            } else if (!aValue.toLowerCase().contains(value.toLowerCase())){
-                System.out.println("No Results");
-                break;
+//            } else if (!aValue.contains(value)){
+//                System.out.println("No Results");
+//                break;
             }
         }
         return jobs;
