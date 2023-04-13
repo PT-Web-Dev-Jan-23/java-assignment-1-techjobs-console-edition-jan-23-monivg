@@ -62,9 +62,9 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    printJobs(JobData.findByValue(searchTerm));
+                    printJobs(JobData.findByValue(searchTerm.toLowerCase()));
                 } else {
-                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                    printJobs(JobData.findByColumnAndValue(searchField, searchTerm.toLowerCase()));
                 }
             }
         }
@@ -119,7 +119,38 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-
-        System.out.println("printJobs is not implemented yet");
+        if (someJobs.size() >= 1){
+                for (HashMap<String, String> someJob:someJobs){
+                    System.out.println("\n*****");
+                    for (Map.Entry<String, String> jobInfo: someJob.entrySet()){
+                        String key = jobInfo.getKey();
+                        String value = jobInfo.getValue();
+                        System.out.println(key + ": " + value);
+                    }
+                    System.out.println("*****");
+                }
+            }else{
+            System.out.print("No Results");
+        }
     }
 }
+//        for (int i =0; i< someJobs.size(); i++){
+//            for (HashMap<String, String> someJob:someJobs){
+//                for (Map.Entry<String, String> entry : someJob.entrySet()) {
+//                    String key = entry.getKey();
+//                    String value = entry.getValue();
+//                }
+//            }
+//                    System.out.println("*****\n" + someJobs.get(i) + "\n*****");
+//        }
+////                    System.out.println("*****\n" + key + ": " + value + "\n" +
+////                            key + ": " + value + "\n" +
+////                            key + ": " + value + "\n" +
+////                            key + ": " + value + "\n" +
+////                            key + ": " + value +
+////                            "\n*****");
+////            }
+////        }
+//    }
+
+

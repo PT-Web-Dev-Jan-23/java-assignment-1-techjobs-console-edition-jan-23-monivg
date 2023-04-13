@@ -79,11 +79,11 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
-            }
-        }
 
+                }
+            }
         return jobs;
     }
 
@@ -98,8 +98,18 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        // TODO - implement this method
-        return null;
+        // TODO - implement this method - need to break statement in loop to stop the loop after the condition is met
+        //  to not print duplicates; similar to findByColumnnAndValue; need to use loop
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        for (HashMap<String, String> column : allJobs) {
+            String aColumn = column.toString().toLowerCase();
+                if (aColumn.contains(value.toLowerCase())) {
+                    if (!jobs.contains(column)) {
+                        jobs.add(column);
+                    }
+                }
+        }
+            return jobs;
     }
 
     /**
